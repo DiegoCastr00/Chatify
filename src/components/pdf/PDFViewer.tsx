@@ -10,7 +10,7 @@ function PDFViewer({ path, document }: Promps) {
 
     try {
         return (
-            <iframe src={`https://firebasestorage.googleapis.com/v0/b/libriary-latgoblab.appspot.com/o/${path}%2F${document}.pdf?alt=media&token=46e687b3-063b-4aa1-af5e-860ffe88147d`} className='w-full h-[85vh]' style={{ border: 'none' }}></iframe>
+            <iframe src={`https://firebasestorage.googleapis.com/v0/b/chatify-eb088.appspot.com/o/${path}%2F${document}.pdf?alt=media&token=5f0da5a9-a5bb-4c27-b024-3149d67baa5c`} className='w-full h-[85vh]' style={{ border: 'none' }}></iframe>
         )
     } catch (error) {
         console.log(error)
