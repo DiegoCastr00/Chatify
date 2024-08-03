@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/600.css';
+@import '@fontsource/poppins/700.css';
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -32,7 +36,7 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 240 97% 1%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
