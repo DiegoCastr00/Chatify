@@ -19,6 +19,7 @@ type Card = {
   id: string;
   content: JSX.Element | React.ReactNode | string;
   className: string;
+  height: string;
   thumbnail: string;
   company: Company;
 };
@@ -41,40 +42,38 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
   };
 
   return (
-    <div className="w-full h-screen flex">
-        <div className="flex pl-32 pr-10 text-6xl h-screen items-center justify-center self-center font-bold">
-            <p className="text-black dark:text-white">Tus compañías</p>
-        </div>
-
-        <div className="w-full h-screen p-10 grid grid-cols-1 md:grid-cols-3 mx-auto gap-4 relative">
+    <div className="flex">
+        <div className="w-3/5 p-10 grid grid-cols-3 md:grid-cols-4 mx-auto gap-4 relative">
                 {cards.map((card, i) => (
-                  <div key={i} className={cn(card.className, "")}>
+                  <div key={i} className={cn(card.height, selected?.id === card.id
+                    ? "":"","")}>
                     <motion.div
                       onClick={() => handleClick(card, card.company)}
                       className={cn(
                         card.className,
                         "relative overflow-hidden",
                         selected?.id === card.id
-                          ? "rounded-lg cursor-pointer absolute inset-0 top-0 h-3/4 w-full m-auto z-40 flex justify-center items-center"
+                          ? "fixed self-center rounded-lg cursor-pointer inset-0 top-0 h-max w-4/5 z-40 flex justify-self-center items-center"
                           : lastSelected?.id === card.id
                           ? "z-40 bg-white rounded-xl h-full w-full"
                           : "bg-white rounded-xl h-full w-full"
                       )}
                       layoutId={`card-${card.id}`}
                     >
-                      {selected?.id === card.id && <SelectedCard selected={selected} />}
                       <ImageComponent card={card} />
+                      {selected?.id === card.id && <SelectedCard selected={selected} />}
                     </motion.div>
                   </div>
                 ))}
         </div>
+        
         <motion.div
             onClick={handleOutsideClick}
             className={cn(
-              "absolute h-full bottom-0 w-full left-0 top-0 bg-black opacity-0 z-10",
+              "absolute min-h-screen bottom-0 w-full left-0 top-0 dark:bg-black bg-white opacity-0 z-10",
               selected?.id ? "pointer-events-auto" : "pointer-events-none"
             )}
-            animate={{ opacity: selected?.id ? 0.5 : 0 }}
+            animate={{ opacity: selected?.id ? 1 : 0 }}
         />
     </div>
   );
@@ -82,53 +81,60 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
 
 const ImageComponent = ({ card }: { card: Card }) => {
   return (
-    <motion.img
-      layoutId={`image-${card.id}-image`}
-      src={card.thumbnail}
-      height="500"
-      width="500"
-      className={cn(
-        "object-cover object-top absolute inset-0 h-full w-full transition duration-200"
-      )}
-      alt="thumbnail"
-    />
+    <div className="flex-col w-full h-full">
+      <div className="flex w-full h-3/5 items-center justify-center bg-white rounded-t-lg overflow-hidden">
+        <motion.img
+          layoutId={`image-${card.id}-image`}
+          src={card.thumbnail}
+          className={cn(
+            "w-full transition duration-200 rounded-t-lg self-center"
+          )}
+          alt="thumbnail"
+        />
+      </div>
+      <div className="flex w-full h-2/5 items-center rounded-b-lg justify-center p-5 bg-gradient-to-r dark:from-[#00054A] dark:to-[#3B004A] from-[#88C7FF] to-[#E2A9FF]">
+        <p className="text-bold text-sm text-center self-center">{card.company.name}</p>
+      </div>
+    </div>
   );
 };
 
 const SelectedCard = ({ selected }: { selected: Card | null }) => {
   return (
-    <div className="bg-transparent h-full w-full flex flex-col justify-end rounded-lg shadow-2xl relative z-[60]">
-      <motion.div
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 0.6,
-        }}
-        className="absolute inset-0 h-full w-full bg-black opacity-60 z-10"
-      />
-      <motion.div
-        layoutId={`content-${selected?.id}`}
-        initial={{
-          opacity: 0,
-          y: 100,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        exit={{
-          opacity: 0,
-          y: 100,
-        }}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut",
-        }}
-        className="z-[70] h-full p-5"
-      >
-        {selected?.content}
-      </motion.div>
+    <div className="h-full w-full">
+      <div className="bg-transparent h-max w-full flex flex-col justify-end rounded-lg relative z-[60]">
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 0.6,
+          }}
+          className="absolute inset-0 h-full w-full bg-transparent  z-10"
+        />
+        <motion.div
+          layoutId={`content-${selected?.id}`}
+          initial={{
+            opacity: 0,
+            y: 100,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          exit={{
+            opacity: 0,
+            y: 100,
+          }}
+          transition={{
+            duration: 0.3,
+            ease: "easeInOut",
+          }}
+          className="z-[70] h-full p-5"
+        >
+          {selected?.content}
+        </motion.div>
+      </div>
     </div>
   );
 };

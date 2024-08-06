@@ -13,7 +13,8 @@ export default function Header() {
                 <nav className=" border-gray-200 px-4 lg:px-6 py-2.5">
                     <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                         <a href="https://latgoblab.com/" className="flex items-center">
-                            <img src="https://latgob.school/pluginfile.php/1/core_admin/logocompact/300x300/1714967970/256x256.png" className="mr-3 h-6 sm:h-9" alt="latgoblab Logo" />
+                            <img src="../../../../assets/logo_dark.png" className="mr-3 h-0 dark:h-9" alt="latgoblab Logo" />
+                            <img src="../../../../assets/logo_light.png" className="mr-3 h-9 dark:h-0" alt="latgoblab Logo" />
                             <span className="self-center text-xl font-semibold whitespace-nowrap ">Menu</span>
                         </a>
                         <div className="flex items-center lg:order-2">
@@ -21,7 +22,7 @@ export default function Header() {
                         </div>
                         <div className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
 
-                            <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                            <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-32 lg:mt-0">
                                 <li>
                                     <Link
                                         href="/"
@@ -37,7 +38,7 @@ export default function Header() {
                                         className={`block py-2 pr-4 pl-3 border-b border-gray-100 lg:border-0 lg:p-0 ${pathname === '/companies' ? 'font-semibold' : 'text-gray-700 hover:text-primary-700'
                                             }`}
                                     >
-                                        Compañías
+                                        Biblioteca
                                     </Link>
                                 </li>
                                 <li>
