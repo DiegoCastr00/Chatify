@@ -55,8 +55,8 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
                         selected?.id === card.id
                           ? "fixed self-center rounded-lg cursor-pointer inset-0 top-0 h-max w-4/5 z-40 flex justify-self-center items-center"
                           : lastSelected?.id === card.id
-                          ? "z-40 bg-white rounded-xl h-full w-full"
-                          : "bg-white rounded-xl h-full w-full"
+                          ? "z-40rounded-xl h-full w-full"
+                          : " rounded-xl h-full w-full"
                       )}
                       layoutId={`card-${card.id}`}
                     >
@@ -82,7 +82,7 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
 const ImageComponent = ({ card }: { card: Card }) => {
   return (
     <div className="flex-col w-full h-full">
-      <div className="flex w-full h-3/5 items-center justify-center bg-white rounded-t-lg overflow-hidden">
+      <div className="flex w-full h-3/5 items-center justify-center rounded-t-lg overflow-hidden">
         <motion.img
           layoutId={`image-${card.id}-image`}
           src={card.thumbnail}
@@ -92,7 +92,7 @@ const ImageComponent = ({ card }: { card: Card }) => {
           alt="thumbnail"
         />
       </div>
-      <div className="flex w-full h-2/5 items-center rounded-b-lg justify-center p-5 bg-gradient-to-r dark:from-[#00054A] dark:to-[#3B004A] from-[#88C7FF] to-[#E2A9FF]">
+      <div className="flex w-full h-2/5 items-center rounded-b-lg justify-center p-5 dark:bg-black bg-white">
         <p className="text-bold text-sm text-center self-center">{card.company.name}</p>
       </div>
     </div>
