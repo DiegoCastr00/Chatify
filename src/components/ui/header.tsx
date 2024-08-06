@@ -12,7 +12,7 @@ export default function Header() {
             <header>
                 <nav className=" border-gray-200 px-4 lg:px-6 py-2.5">
                     <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                        <a href="https://latgoblab.com/" className="flex items-center">
+                        <a href="" className="flex items-center">
                             <img src="../../../../assets/logo_dark.png" className="mr-3 h-0 dark:h-9" alt="latgoblab Logo" />
                             <img src="../../../../assets/logo_light.png" className="mr-3 h-9 dark:h-0" alt="latgoblab Logo" />
                             <span className="self-center text-xl font-semibold whitespace-nowrap ">Menu</span>

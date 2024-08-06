@@ -6,7 +6,7 @@ import { BackgroundGradient } from '@/components/ui/background-gradient'
 export default function Contact() {
     return (
         <div className="flex min-h-screen justify-center items-center top-0">
-            <div className='grid absolute w-[90%] h-[80%] mt-10'>
+            <div className='grid absolute w-[90%] h-[80%] mt-10 -z-10'>
                 <div className='absolute -z-10 w-[30rem] h-[30rem] bg-[#88C7FF] dark:bg-[#00054A] rounded-full filter blur-3xl self-end justify-self-start'></div>
                 <div className='absolute -z-10 w-[30rem] h-[30rem] bg-[#E2A9FF] dark:bg-[#3B004A] rounded-full filter blur-3xl self-end justify-self-end'></div>
             </div>
