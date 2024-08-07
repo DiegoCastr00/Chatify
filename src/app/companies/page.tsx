@@ -1,116 +1,118 @@
 "use client"
 import { Button } from '@/components/ui/button'
 import Link from 'next/link';
-import React from 'react'
-import { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import { companies } from '@/components/const/companies';
-import { LayoutGrid } from "../../components/ui/layout-grid";
-import { motion } from "framer-motion";
-import { AuroraBackground } from "../../components/ui/aurora-background";
+import { Input } from '@/components/ui/input';
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 
 type Company = {
-    id: string
-    name: string
-    description: string
-    img: string | null
-    books: string[]
+    id: string;
+    name: string;
+    description: string;
+    img: string | null;
+    books: string[];
+};
 
-}
 export default function Companies() {
     const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [filteredCompanies, setFilteredCompanies] = useState<Company[]>(companies);
+
+    useEffect(() => {
+        if (searchTerm === '') {
+            setFilteredCompanies(companies);
+        } else {
+            const filtered = companies.filter(company =>
+                company.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                company.description.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            setFilteredCompanies(filtered);
+        }
+    }, [searchTerm]);
 
     const handleCompanyClick = (company: Company) => {
-        setSelectedCompany(company)
-    }
+        setSelectedCompany(company);
+    };
 
-    const createCompanyComponent = (company: Company) => {
-        return (
-            <div className='flex-col h-full ml-10 w-full'>
-                <div className='w-full items-center justify-center self-center'>
-                    <p className="text-black dark:text-white text-xl">
-                        {company.name}
-                    </p>
-                </div>
-                <p className="font-normal text-base text-white"></p>
-                <div className='flex flex-col w-full mt-14 justify-center'>
-                    <p className="font-normal text-base max-w-lg text-black dark:text-white">
-                        {company.description}
-                    </p>
-                    <div className="mt-14 flex justify-between z-50 rounded-full">
-                        <Link href={`${company.id}`}>
-                            <Button className='rounded-2xl font-bold text-sm'>
-                                Ask {company.id}
-                            </Button>
-                        </Link>
+    return (
+        <div>
+            <div className="w-full max-w-6xl mx-auto px-4 py-8 md:px-6 md:py-12">
+                <div className="grid gap-6 md:gap-8">
+                    <div className="grid gap-2 text-center">
+                        <h1 className="text-3xl font-bold tracking-tight">Biblioteca</h1>
+                        <p className="text-muted-foreground">Descubre nuestra última colección de espacios de trabajo con información de alta calidad.</p>
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <div className="relative flex-1">
+                            <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                            <Input
+                                type="search"
+                                placeholder="Busca por el nombre o descripcion..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                className="w-full rounded-lg bg-background pl-10 pr-4 py-2"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-        );
-    };
 
-    const companyComponents = companies.map(company => ({
-        [company.id]: createCompanyComponent(company)
-    }));
-
-    const Skeletons = Object.assign({}, ...companyComponents);
-
-    const cards = companies.flatMap((company, index) => {
-        const isEvenRow = Math.floor(index / 3) % 2 === 0;
-        const positionInRow = index % 3;
-
-        let aspect, colSpan;
-
-        if (isEvenRow) {
-            if (positionInRow === 0) {
-                aspect = "16/10";
-                colSpan = "col-span-2";
-            } else {
-                aspect = "4/3";
-                colSpan = "col-span-1";
-            }
-        } else {
-            if (positionInRow === 2) {
-                aspect = "16/10";
-                colSpan = "col-span-2";
-            } else {
-                aspect = "4/3";
-                colSpan = "col-span-1";
-            }
-        }
-
-        return {
-            id: company.id,
-            content: React.createElement(Skeletons[company.id]),
-            className: `${colSpan} aspect-[${aspect}]`,
-            height: `${colSpan} h-56`,
-            thumbnail: `/assets/${company.img}`,
-            company: company,
-        };
-    });
-
-    return (
-        <motion.div
-            initial={{ opacity: 0.0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-                delay: 0.3,
-                duration: 0.8,
-                ease: "easeInOut",
-            }}
-            className="relative flex items-center justify-center px-4 w-full h-full"
-        >
-            <main className="w-full">
-                <div className="h-full w-full overflow-hidden">
-                    <div className='grid absolute w-[90%] h-[80%] mt-10'>
-                        <div className='absolute -z-10 w-[30rem] h-[30rem] bg-[#88C7FF] dark:bg-[#00054A] rounded-full filter blur-3xl self-center justify-self-center'></div>
-                        <div className='absolute -z-10 w-[30rem] h-[30rem] bg-[#E2A9FF] dark:bg-[#3B004A] rounded-full filter blur-3xl self-center justify-self-center mt-40'></div>
-                    </div>
-                    <div className="flex p-10 text-6xl font-bold self-center">
-                        <p className="text-black dark:text-white text-center w-full">Biblioteca</p>
-                    </div>
-                    <LayoutGrid cards={cards} />
+            <main className="container mx-auto py-12 px-4 md:px-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+                    {filteredCompanies.map((company) => (
+                        <div
+                            key={company.id}
+                            className="bg-background rounded-lg shadow-lg overflow-hidden group cursor-pointer relative"
+                            onClick={() => handleCompanyClick(company)}
+                        >
+                            <div className="relative h-40 md:h-48 w-full">
+                                <img
+                                    src={`/assets/${company.img}`}
+                                    alt="Company Logo"
+                                    width={400}
+                                    height={300}
+                                    className="rounded-lg object-cover w-full h-full"
+                                />
+                                <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <h3 className="text-white text-xl font-semibold text-center">{company.name}</h3>
+                                </div>
+                            </div>
+                            <div className="p-4 flex items-center justify-center">
+                                <h3 className="text-lg text-center group-hover:opacity-0 transition-opacity">{company.name}</h3>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </main>
-        </motion.div>
-    )
+
+            {selectedCompany && (
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                    <div className="bg-background rounded-lg shadow-lg p-6 max-w-4xl w-full flex">
+                        <div className="w-10/12 pr-6">
+                            <img
+                                src={`/assets/${selectedCompany.img}`}
+                                alt={`${selectedCompany.name} Logo`}
+                                className="w-full h-full object-cover rounded-lg"
+                            />
+                        </div>
+                        <div className="w-2/3">
+                            <h2 className="text-2xl font-bold mb-4">{selectedCompany.name}</h2>
+                            <p className="text-muted-foreground">{selectedCompany.description}</p>
+                            <div className="mt-4 flex justify-between">
+                                <Button variant="outline" onClick={() => setSelectedCompany(null)}>
+                                    Close
+                                </Button>
+                                <Link href={`${selectedCompany.id}`}>
+                                    <Button>
+                                        Ask {selectedCompany.id}
+                                    </Button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
 }

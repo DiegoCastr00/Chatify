@@ -48,7 +48,6 @@ export function Chat({ path, userMessage }: Props) {
     useEffect(() => {
         if (userMessage && userMessage.trim() !== '') {
             setInput(userMessage);
-            console.log("User Message", userMessage);
             setIsUserMessageUsed(true);
             setTimeout(() => {
                 if (submitButtonRef.current) {
@@ -65,7 +64,7 @@ export function Chat({ path, userMessage }: Props) {
     }, [isLoading]);
 
     return (
-        <div className="rounded-2xl w-full border h-[85vh] flex flex-col justify-between">
+        <div className="rounded-2xl w-full border h-[93vh] flex flex-col justify-between">
             <div className="p-6 overflow-auto" ref={containerRef}>
                 {messages.map(({ id, role, content, annotations }: Message, index: number) => (
                     <ChatLine

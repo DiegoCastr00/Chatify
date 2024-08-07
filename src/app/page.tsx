@@ -7,12 +7,14 @@ import { placeholders } from '@/components/const/placeholders';
 import { SparklesCore } from "../components/ui/sparkles";
 import { useTheme } from "next-themes";
 import { AnimatePresence, motion } from "framer-motion";
-import {BackgroundGradient} from "../components/ui/background-gradient"
+import { BackgroundGradient } from "../components/ui/background-gradient"
+import { Button } from '@/components/ui/button';
+import { ArchiveIcon } from "@radix-ui/react-icons"
+import Link from 'next/link';
 
 function App() {
     const [inputValue, setInputValue] = useState('');
     const router = useRouter();
-
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
@@ -24,56 +26,56 @@ function App() {
         router.push(`/amazon?query=${encodeURIComponent(inputValue)}`);
     };
 
-    const { theme } = useTheme();
 
     return (
         <motion.div
             initial={{ opacity: 0.0, y: 0.0 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
+                delay: 0.3,
+                duration: 0.8,
+                ease: "easeInOut",
             }}
         >
-            <div className='flex w-full h-full justify-center'>
-                <BackgroundGradient></BackgroundGradient>
-                <div className="flex flex-col h-[90vh] pl-36 justify-center">
-                    <div className="flex w-full">
-                        <div className="">
-                            <div className="space-y-2 w-full self-center">
-                                <h1 className="text-8xl font-bold text-center">Chatify</h1>
-                                <div className='w-full flex items-center justify-center p-0 m-0'>
-                                    <p className="w-3/5 text-center text-2xl pt-3 text-black dark:text-white">Carga, organiza y obtén respuestas precisas al instante. ¿Cómo puedo ayudarte?</p>
-                                </div>
+            <div className='flex relative'>
+                <div className="absolute top-4 left-4 flex items-center z-20">
+                    <img src="../../../../assets/logo_dark.png" className="h-0 dark:h-7" alt="latgoblab Logo" />
+                    <img src="../../../../assets/logo_light.png" className="h-7 dark:h-0" alt="latgoblab Logo" />
+                    <span className="ml-2 text-xl whitespace-nowrap">Chatify</span>
+                </div>
+
+                {/* Botón en la esquina superior derecha */}
+                <div className="absolute top-4 right-4 z-20">
+                    <Link href="/companies">
+                        <Button variant="ghost" >
+                            <ArchiveIcon className="mr-2 h-4 w-4" /> Libreria
+                        </Button>
+                    </Link>
+                </div>
+
+                <BackgroundGradient />
+                <div className="flex flex-col z-10 w-full h-[100vh] items-center justify-center ">
+                    <div className=" ">
+                        <div className="space-y-2 self-center">
+                            <div className='w-full flex flex-col items-center justify-center p-0 m-0'>
+                                <p className="text-sm sm:text-base md:text-lg lg:text-xl ">¡Hola! Soy un agente especializado en</p>
+                                <p className="text-sm sm:text-base md:text-lg lg:text-xl">literatura para el desarrollo</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className="flex w-3/5 mt-10 self-center">
+                    <div className="flex  items-center mt-10 max-w-screen-md w-80 sm:w-full ">
                         <PlaceholdersAndVanishInput
                             placeholders={placeholders}
                             onChange={handleInputChange}
                             onSubmit={handleSubmit} />
                     </div>
-
-                    {/* <form onSubmit={handleSubmit} className="p-4 flex clear-both w-full items-center justify-center">
-
-                        <div className="flex w-full max-w-screen-md items-center space-x-2">
-                            <Input type="text"
-                                placeholder="Escribe tu pregunta a la IA"
-                                value={inputValue}
-                                onChange={handleInputChange} />
-
-                            <Button type="submit" className='px-10'>Pregunta</Button>
-                        </div> 
-                    </form>*/}
-
                 </div>
-
             </div>
         </motion.div>
     )
+
+
 }
 
 export default App
