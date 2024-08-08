@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export const BackgroundGradient = () => {
   return (
-    <div className='grid absolute w-full h-full overflow-hidden'>
+    <div className='grid absolute w-full h-full overflow-hidden -z-50'>
       <motion.div
         className='absolute -z-10 w-[30rem] h-[30rem] dark:bg-[#00054A] bg-[#88C7FF] rounded-full filter blur-3xl self-end justify-self-start -inset-20'
         animate={{

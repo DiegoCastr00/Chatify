@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { companies } from '@/components/const/companies';
 import { Input } from '@/components/ui/input';
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import { BackgroundGradient } from '@/components/ui/background-gradient';
 
 type Company = {
     id: string;
@@ -37,6 +38,7 @@ export default function Companies() {
 
     return (
         <div>
+            <BackgroundGradient></BackgroundGradient>
             <div className="w-full max-w-6xl mx-auto px-4 py-8 md:px-6 md:py-12">
                 <div className="grid gap-6 md:gap-8">
                     <div className="grid gap-2 text-center">

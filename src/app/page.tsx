@@ -48,7 +48,7 @@ function App() {
                 <div className="absolute top-4 right-4 z-20">
                     <Link href="/companies">
                         <Button variant="ghost" >
-                            <ArchiveIcon className="mr-2 h-4 w-4" /> Libreria
+                            <ArchiveIcon className="mr-2 h-4 w-4" /> Biblioteca
                         </Button>
                     </Link>
                 </div>
