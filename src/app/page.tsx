@@ -53,7 +53,7 @@ function App() {
                     </Link>
                 </div>
 
-                <BackgroundGradient />
+                <div className='absolute h-full w-full overflow-hidden'><BackgroundGradient /></div>
                 <div className="flex flex-col z-10 w-full h-[100vh] items-center justify-center ">
                     <div className=" ">
                         <div className="space-y-2 self-center">

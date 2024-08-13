@@ -37,8 +37,8 @@ export default function Companies() {
     };
 
     return (
-        <div>
-            <BackgroundGradient></BackgroundGradient>
+        <div className='h-full'>
+            <div className='absolute h-full w-full overflow-hidden'><BackgroundGradient /></div>
             <div className="w-full max-w-6xl mx-auto px-4 py-8 md:px-6 md:py-12">
                 <div className="grid gap-6 md:gap-8">
                     <div className="grid gap-2 text-center">
