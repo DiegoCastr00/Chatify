@@ -1,4 +1,4 @@
-export const companies = [
+export const workspaces = [
     {
         id: "amazon",
         name: "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME)",
