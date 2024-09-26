@@ -34,7 +34,7 @@ function App() {
         ease: "easeInOut",
       }}
     >
-      <div className="flex relative">
+      <div className="flex relative ">
         <div className="absolute top-4 left-4 flex items-center z-20">
           <img
             src="../../../../assets/logo_dark.png"
@@ -66,10 +66,10 @@ function App() {
             <div className="space-y-2 self-center">
               <div className="w-full flex flex-col items-center justify-center p-0 m-0">
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl ">
-                  ¡Hola! Soy un agente especializado en
+                  ¡Hola! Soy una biblioteca impulsada por IA
                 </p>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl">
-                  literatura para el desarrollo
+                  Preguntame acerca de la gaceta del IPN
                 </p>
               </div>
             </div>

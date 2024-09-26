@@ -1,182 +1,115 @@
 export const workspaces = [
     {
-        id: "amazon",
-        name: "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME)",
+        id: "becas",
+        name: "Becas Escolares",
         description:
-            "La Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME) Unidad Zacatenco del IPN se destaca por su enfoque en la innovación tecnológica y la investigación aplicada. Con un campus moderno y laboratorios de última generación, la ESIME Zacatenco fomenta la creación de proyectos interdisciplinarios y la colaboración con empresas líderes en la industria.",
-        img: "esime.jpg",
+            "industria.",
+        img: "becas.jpeg",
         books: [
-            "quimica",
-            "historia",
-            "proyectos",
-            "matematicas",
-            "fisica",
-            "biologia",
-            "lenguaje",
-            "ingles",
-            "geografia",
-            "ciencias",
-            "tecnologia",
-            "arte",
-            "musica",
-            "educacion fisica",
-            "etica",
-            "religion",
-            "computacion",
-            "orientacion",
-            "historia argentina",
-            "historia universal",
-            "historia latinoamericana",
-            "historia de la argentina",
-            "historia de la argentina contemporanea",
-            "historia de la argentina moderna",
-            "historia de la argentina colonial",
-            "historia de la argentina independiente",
-            "historia de la argentina democratica",
-            "historia de la argentina federal",
-            "historia de la argentina unitaria historia de la argentina unitaria",
+            "BecaTelcel-Telmex25-1",
+            "Gaceta-extra-1810-CGB-25-1",
         ]
     },
     {
-        id: "google",
-        name: "Escuela Superior de Comercio y Administración (ESCA)",
+        id: "comunicacion",
+        name: "Comunicacion No Sexista",
         description:
-            "La Escuela Superior de Comercio y Administración (ESCA) Unidad Santo Tomás es reconocida por su programa integral que combina la teoría económica con la práctica empresarial. Con una amplia red de contactos en el sector privado y público, los estudiantes de la ESCA Santo Tomás participan en intercambios internacionales y prácticas profesionales que enriquecen su formación.",
-        img: "amazon.jpg",
+            "La ",
+        img: "comunicacion.png",
         books: [
-            "proyectos",
+            "librocomunicacionnosexista",
         ]
 
     },
     {
-        id: "microsoft",
-        name: "Escuela Superior de Cómputo (ESCOM)",
+        id: "comunicados",
+        name: "Comunicados Oficiales",
         description:
-            "La Escuela Superior de Cómputo (ESCOM) del IPN es un centro líder en educación y desarrollo de tecnologías de la información. Con programas de estudio que incluyen inteligencia artificial y ciberseguridad, la ESCOM prepara a sus estudiantes para enfrentar los desafíos del mundo digital con soluciones innovadoras y efectivas.",
-        img: "escom.webp",
+            "La ",
+        img: "comunicados_2024.jpg",
         books: [
-            "quimica",
-            "historia"
+            "c-35-mex-jap-coop",
+            "c-068-2022"
         ]
 
     },
     {
-        id: "latgoblab",
-        name: "Escuela Nacional de Ciencias Biológicas (ENCB)",
+        id: "convocatoria-cultural",
+        name: "Convocatoria Cultural",
         description:
-            "La Escuela Nacional de Ciencias Biológicas (ENCB) Unidad Zacatenco es un referente en la investigación biotecnológica y ambiental. Con un enfoque en la sostenibilidad y la conservación, la ENCB ofrece programas educativos que preparan a los estudiantes para contribuir a la salud pública y la protección del medio ambiente.",
-        img: "encb.jpg",
+            "La",
+        img: "cultura.jpg",
         books: [
-            "quimica",
-            "historia"
+            "2024-convocatoria-ciap",
+            "2024-convocatoria-cuento",
+            "2024-convocatoria-danzac"
         ],
 
     },
     {
-        id: "escuela5",
-        name: "Escuela Superior de Ingeniería y Arquitectura (ESIA)",
+        id: "convocatoria-deportiva",
+        name: "Convocatoria Deportiva",
         description:
-            "La Escuela Superior de Ingeniería y Arquitectura (ESIA) Unidad Tecamachalco es conocida por su enfoque en el diseño y la construcción sostenible. Con un compromiso hacia la innovación en la arquitectura y la ingeniería civil, la ESIA Tecamachalco forma profesionales capaces de desarrollar proyectos que armonizan con el entorno y las necesidades urbanas modernas.",
-        img: "amazon.jpg",
+            "La",
+        img: "deportes.jpeg",
         books: [
-            "quimica",
-            "historia"
+            "AT-Fronton24",
+            "AT-Fut-asoc24",
+            "AT-voleibol24"
         ],
 
     },
     {
-        id: "escuela6",
-        name: "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME)",
+        id: "gaceta",
+        name: "Gaceta",
         description:
-            "La Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME) Unidad Zacatenco del IPN se destaca por su enfoque en la innovación tecnológica y la investigación aplicada. Con un campus moderno y laboratorios de última generación, la ESIME Zacatenco fomenta la creación de proyectos interdisciplinarios y la colaboración con empresas líderes en la industria.",
-        img: "esime.jpg",
+            "La ",
+        img: "geceta.png",
         books: [
-            "quimica",
-            "historia"
+            "g-seleccion-176",
         ],
 
     },
     {
-        id: "escuela7",
-        name: "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME)",
+        id: "genero",
+        name: "Redes de Genero",
         description:
-            "La Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME) Unidad Zacatenco del IPN se destaca por su enfoque en la innovación tecnológica y la investigación aplicada. Con un campus moderno y laboratorios de última generación, la ESIME Zacatenco fomenta la creación de proyectos interdisciplinarios y la colaboración con empresas líderes en la industria.",
-        img: "esime.jpg",
+            "La ",
+        img: "genero.jpeg",
         books: [
-            "quimica",
-            "historia"
+            "200103-DOF-Protocolo-HsyAs",
+            "acuerdo-de-creación",
+            "Guía de Apoyo ReG",
+            "Folleto-BelemdoPara-ES-WEB",
+            "manual-organizacion-upgpg",
+            "MP-UPGPG",
         ],
-
     },
     {
-        id: "escuela8",
-        name: "Escuela Superior de Comercio y Administración (ESCA)",
+        id: "identidad",
+        name: "Manual Identidad IPN",
         description:
-            "La Escuela Superior de Comercio y Administración (ESCA) Unidad Santo Tomás es reconocida por su programa integral que combina la teoría económica con la práctica empresarial. Con una amplia red de contactos en el sector privado y público, los estudiantes de la ESCA Santo Tomás participan en intercambios internacionales y prácticas profesionales que enriquecen su formación.",
-        img: "amazon.jpg",
+            "La ",
+        img: "identidad.jpg",
         books: [
-            "proyectos",
+            "manual-de-identidad-grafica",
+            "manual-identidad-web",
         ]
 
     },
     {
-        id: "escuela9",
-        name: "Escuela Superior de Cómputo (ESCOM)",
+        id: "normatividad",
+        name: "Normatividad",
         description:
-            "La Escuela Superior de Cómputo (ESCOM) del IPN es un centro líder en educación y desarrollo de tecnologías de la información. Con programas de estudio que incluyen inteligencia artificial y ciberseguridad, la ESCOM prepara a sus estudiantes para enfrentar los desafíos del mundo digital con soluciones innovadoras y efectivas.",
-        img: "escom.webp",
+            "La ",
+        img: "normatividad.jpeg",
         books: [
-            "quimica",
-            "historia"
+            "g-1760-extra",
+            "leyorganicadelipn",
+            "reglamento-1541",
+            "reglamento-interno",
         ]
 
     },
-    {
-        id: "escuela10",
-        name: "Escuela Superior de Cómputo (ESCOM)",
-        description:
-            "La Escuela Superior de Cómputo (ESCOM) del IPN es un centro líder en educación y desarrollo de tecnologías de la información. Con programas de estudio que incluyen inteligencia artificial y ciberseguridad, la ESCOM prepara a sus estudiantes para enfrentar los desafíos del mundo digital con soluciones innovadoras y efectivas.",
-        img: "escom.webp",
-        books: [
-            "quimica",
-            "historia"
-        ]
-
-    },
-    {
-        id: "escuela11",
-        name: "Escuela Superior de Cómputo (ESCOM)",
-        description:
-            "La Escuela Superior de Cómputo (ESCOM) del IPN es un centro líder en educación y desarrollo de tecnologías de la información. Con programas de estudio que incluyen inteligencia artificial y ciberseguridad, la ESCOM prepara a sus estudiantes para enfrentar los desafíos del mundo digital con soluciones innovadoras y efectivas.",
-        img: "escom.webp",
-        books: [
-            "quimica",
-            "historia"
-        ]
-
-    },
-    {
-        id: "escuela12",
-        name: "Escuela Superior de Cómputo (ESCOM)",
-        description:
-            "La Escuela Superior de Cómputo (ESCOM) del IPN es un centro líder en educación y desarrollo de tecnologías de la información. Con programas de estudio que incluyen inteligencia artificial y ciberseguridad, la ESCOM prepara a sus estudiantes para enfrentar los desafíos del mundo digital con soluciones innovadoras y efectivas.",
-        img: "escom.webp",
-        books: [
-            "quimica",
-            "historia"
-        ]
-
-    },
-    {
-        id: "escuela13",
-        name: "Escuela Superior de Cómputo (ESCOM)",
-        description:
-            "La Escuela Superior de Cómputo (ESCOM) del IPN es un centro líder en educación y desarrollo de tecnologías de la información. Con programas de estudio que incluyen inteligencia artificial y ciberseguridad, la ESCOM prepara a sus estudiantes para enfrentar los desafíos del mundo digital con soluciones innovadoras y efectivas.",
-        img: "escom.webp",
-        books: [
-            "quimica",
-            "historia"
-        ]
-
-    },
+  
 ]
