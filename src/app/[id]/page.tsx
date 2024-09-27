@@ -95,7 +95,11 @@ export default function Page() {
           <ResizableHandle withHandle />
           <ResizablePanel defaultSize={47}>
             <div className="flex items-center justify-center h-full">
-              <Chat path={pathformatted} userMessage={queryParam} />
+              <Chat
+                path={pathformatted}
+                userMessage={queryParam}
+                placeholders={workspace?.placeholders}
+              />
             </div>
           </ResizablePanel>
         </ResizablePanelGroup>

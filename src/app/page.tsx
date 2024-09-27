@@ -21,7 +21,7 @@ function App() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("inputValue", inputValue);
-    router.push(`/amazon?query=${encodeURIComponent(inputValue)}`);
+    router.push(`/genero?query=${encodeURIComponent(inputValue)}`);
   };
 
   return (
@@ -39,12 +39,12 @@ function App() {
           <img
             src="../../../../assets/logo_dark.png"
             className="h-0 dark:h-7"
-            alt="latgoblab Logo"
+            alt="chatify Logo"
           />
           <img
             src="../../../../assets/logo_light.png"
             className="h-7 dark:h-0"
-            alt="latgoblab Logo"
+            alt="chatify Logo"
           />
           <span className="ml-2 text-xl whitespace-nowrap">Chatify</span>
         </div>
@@ -69,7 +69,7 @@ function App() {
                   ¡Hola! Soy una biblioteca impulsada por IA
                 </p>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl">
-                  Preguntame acerca de la gaceta del IPN
+                  Preguntame acerca de redes de genero
                 </p>
               </div>
             </div>

@@ -13,7 +13,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { PlaceholdersAndVanishInput } from "@/components/ui/placeholders-and-vanish-input";
-import { placeholders } from "@/components/const/placeholders";
+import { placeholder_search } from "@/components/const/placeholders";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 
 type Workspace = {
@@ -22,6 +22,7 @@ type Workspace = {
   description: string;
   img: string | null;
   books: string[];
+  placeholders?: string[];
 };
 
 const WorkspaceItem: React.FC<{ workspace: Workspace }> = ({ workspace }) => (
@@ -127,14 +128,6 @@ const Workspaces: React.FC = () => {
     console.log("searchTerm", searchTerm);
   };
 
-  // const recentWorkspaces = workspaces.filter((workspace) =>
-  //   ["amazon", "google", "microsoft"].includes(workspace.id)
-  // );
-
-  // const convocatorias = workspaces.filter((workspace) =>
-  //   ["latgoblab", "escuela5"].includes(workspace.id)
-  // );
-
   return (
     <div className="min-h-screen relative overflow-hidden">
       <BackgroundGradient />
@@ -153,7 +146,7 @@ const Workspaces: React.FC = () => {
                 Busca por nombre o descripcion de la biblioteca
               </p>
               <PlaceholdersAndVanishInput
-                placeholders={placeholders}
+                placeholders={placeholder_search}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onSubmit={handleSubmit}
               />

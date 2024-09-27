@@ -6,7 +6,6 @@ import { useChat, Message } from "ai/react";
 
 import { useEffect, useRef, useState } from "react";
 
-import { placeholders } from "@/components/const/placeholders";
 import { PlaceholdersAndVanishInput } from "./ui/placeholders-and-vanish-input";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
@@ -15,9 +14,10 @@ import { Spinner } from "./ui/spinner";
 type Props = {
   path: string;
   userMessage: string;
+  placeholders?: string[];
 };
 
-export function Chat({ path, userMessage }: Props) {
+export function Chat({ path, userMessage, placeholders }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const submitButtonRef = useRef<HTMLButtonElement | null>(null);
   const [isUserMessageUsed, setIsUserMessageUsed] = useState(false);
@@ -100,7 +100,7 @@ export function Chat({ path, userMessage }: Props) {
       ) : (
         <div className="p-4 flex">
           <PlaceholdersAndVanishInput
-            placeholders={placeholders}
+            placeholders={placeholders || ["Escribe tu pregunta"]}
             onChange={handleInputChange}
             onSubmit={handleSubmit}
           />
