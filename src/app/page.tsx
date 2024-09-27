@@ -69,7 +69,7 @@ function App() {
                   ¡Hola! Soy una biblioteca impulsada por IA
                 </p>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl">
-                  Preguntame acerca de redes de genero
+                  Pregúntame acerca de redes de género
                 </p>
               </div>
             </div>

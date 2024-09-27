@@ -5,8 +5,6 @@ export const placeholders = [
     "Compromiso político contra la violencia",
     "Violencia contra las mujeres: ¿Cómo se define?",
     "Procedimientos para la gestión con perspectiva de género",
-    "Protocolos de equidad de género",
-    "¿Cómo prevenir el acoso sexual?",
     "Atención a víctimas de violencia de género",
     "Definición de hostigamiento y acoso sexual",
 ]
